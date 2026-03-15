@@ -214,7 +214,7 @@ Generated caption:
 
 ------------------------------------------------------------------------
 
-Approach
+## Approach
 
 The goal of this project is to generate natural language descriptions for mobile UI screenshots using a vision-language model.
 
@@ -278,7 +278,9 @@ Cross-attention aligns visual features with text tokens
 
 The decoder generates the caption sequentially
 
-Assumptions
+------------------------------------------------------------------------
+
+## Assumptions
 
 Several assumptions were made during the development of the model.
 
@@ -298,7 +300,9 @@ Visual Context is Enough
 
 The model assumes that meaningful captions can be generated from visual information alone, without additional metadata.
 
-Observations
+------------------------------------------------------------------------
+
+## Observations
 
 During training and inference, several observations were made.
 
