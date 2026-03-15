@@ -214,6 +214,136 @@ Generated caption:
 
 ------------------------------------------------------------------------
 
+Approach
+
+The goal of this project is to generate natural language descriptions for mobile UI screenshots using a vision-language model.
+
+The approach consists of the following steps:
+
+1. Dataset Selection
+
+The RICO Dataset was used as the primary dataset. It contains thousands of Android application screenshots along with UI hierarchy information.
+
+2. Model Selection
+
+The project uses the BLIP architecture, which is a vision-language transformer designed for image captioning tasks.
+
+BLIP was chosen because it:
+
+supports multimodal learning
+
+performs well on caption generation
+
+integrates easily with the **Transformers ecosystem.
+
+3. Fine-Tuning Strategy
+
+Instead of training the entire model from scratch, the project uses parameter-efficient fine-tuning with LoRA.
+
+Benefits of LoRA:
+
+reduces the number of trainable parameters
+
+decreases GPU memory requirements
+
+allows faster training
+
+4. Training Process
+
+The training pipeline involved:
+
+Loading the pretrained BLIP model
+
+Preparing image-caption pairs from the dataset
+
+Applying LoRA adapters to attention layers
+
+Training the model using the Hugging Face Trainer API
+
+Saving the fine-tuned model
+
+Uploading the model to Hugging Face
+
+Training was performed using Google Colab with GPU acceleration.
+
+5. Inference Pipeline
+
+During inference:
+
+The UI screenshot is passed to the processor
+
+The image is encoded by the vision encoder
+
+Cross-attention aligns visual features with text tokens
+
+The decoder generates the caption sequentially
+
+Assumptions
+
+Several assumptions were made during the development of the model.
+
+UI Screens Contain Recognizable Layout Patterns
+
+The model assumes that UI screens follow common design patterns such as navigation bars, lists, buttons, and forms.
+
+Screen-Level Captioning is Sufficient
+
+The model generates captions for the entire screen, rather than describing each individual UI component.
+
+Dataset Diversity is Adequate
+
+The RICO dataset is assumed to contain sufficient variety in UI layouts and application types for the model to generalize.
+
+Visual Context is Enough
+
+The model assumes that meaningful captions can be generated from visual information alone, without additional metadata.
+
+Observations
+
+During training and inference, several observations were made.
+
+1. The Model Learns UI Structure
+
+The model is able to identify common UI elements such as:
+
+navigation bars
+
+lists
+
+buttons
+
+profile screens
+
+and produce meaningful captions describing them.
+
+2. Generic Captions for Complex Screens
+
+For screens with many components, the model tends to produce more generalized captions rather than detailed descriptions.
+
+Example:
+
+Input: complex dashboard UI
+Output:
+“a mobile application interface with multiple options and icons”
+
+3. Small Elements Are Hard to Detect
+
+Very small UI elements such as icons or labels are sometimes ignored by the model.
+
+4. Dataset Quality Affects Performance
+
+The accuracy of captions strongly depends on the quality and diversity of training examples.
+
+5. LoRA Significantly Reduces Training Cost
+
+Using LoRA allowed fine-tuning the model with significantly fewer trainable parameters while maintaining good performance.
+
+Summary
+
+The project demonstrates that a pretrained vision-language model such as BLIP can be successfully adapted to the UI domain using parameter-efficient fine-tuning.
+
+Despite limitations in detecting small elements, the model is able to generate meaningful captions for mobile UI screens and shows potential for applications in accessibility and automated UI documentation.
+
 ## Applications
 
 UI Accessibility\
