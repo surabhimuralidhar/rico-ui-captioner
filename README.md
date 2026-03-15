@@ -118,7 +118,7 @@ GPU: NVIDIA T4
 
     rico-ui-captioner/
     │
-    ├── train.ipynb
+    ├── neural_nomads_train.ipynb
     ├── inference.py
     ├── requirements.txt
     └── README.md
@@ -210,7 +210,7 @@ UI](https://huggingface.co/datasets/huggingface/documentation-images/resolve/mai
 
 Generated caption:
 
-"A mobile application interface displaying multiple options and icons."
+"Two cats sleeping on a couch."
 
 ------------------------------------------------------------------------
 
