@@ -342,7 +342,9 @@ The accuracy of captions strongly depends on the quality and diversity of traini
 
 Using LoRA allowed fine-tuning the model with significantly fewer trainable parameters while maintaining good performance.
 
-Summary
+------------------------------------------------------------------------
+
+## Summary
 
 The project demonstrates that a pretrained vision-language model such as BLIP can be successfully adapted to the UI domain using parameter-efficient fine-tuning.
 
